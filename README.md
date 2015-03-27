@@ -17,7 +17,7 @@ here are the instructions to run it...
 
 1. run `git bash` shell
 3. run `npm install`
-4. npm install -g typescript
+4. run `npm install -g typescript`
 4. run `gulp serve`
 5. run chrome browser and point at `http://localhost:9000`
 6. choose the release link
