@@ -13,6 +13,8 @@ the issue is that `aurelia-templating/custom-element` is loaded properly for the
 
 but then something happens that makes it try to load from the root (which i believe is like it was removed from the define list in memory or something like that.
 
+here are the instructions to run it...
+
 1. run `git bash` shell
 3. run `npm install`
 4. run `gulp serve`
