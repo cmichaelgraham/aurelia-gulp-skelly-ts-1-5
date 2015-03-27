@@ -4,10 +4,26 @@ Illustration of a dojo amd issue loading aurelia
 
 ## gulp-based sample
 
+the issue is that `aurelia-templating/custom-element` is loaded properly for the following locations:
+
+1. [gets defined ok](https://github.com/cmichaelgraham/aurelia-sample-bug/blob/master/scripts/aurelia/aurelia-bundle.js#L11625) - looks good at the end of this method - is on the exports object
+2. [imports properly here](https://github.com/cmichaelgraham/aurelia-sample-bug/blob/master/scripts/aurelia/aurelia-bundle.js#L11857)
+3. [and here](https://github.com/cmichaelgraham/aurelia-sample-bug/blob/master/scripts/aurelia/aurelia-bundle.js#L12018)
+4. but not [here](https://github.com/cmichaelgraham/aurelia-sample-bug/blob/master/scripts/aurelia/aurelia-bundle.js#L11176)
+
+but then something happens that makes it try to load from the root (which i believe is like it was removed from the define list in memory or something like that.
+
 1. run `git bash` shell
 3. run `npm install`
 4. run `gulp serve`
 5. run chrome browser and point at `http://localhost:9000`
+6. choose the release link
+7. F12 for dev tools
+8. You should see this:
+
+![new aurelia bug](https://cloud.githubusercontent.com/assets/10272832/6877029/cc985106-d492-11e4-8293-37856deeb58b.jpg)
+
+
 
 ## Contributing
 
