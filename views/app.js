@@ -1,4 +1,4 @@
-define(["require", "exports", "aurelia-router"], function(require, exports, aur) {
+define(["require", "exports", "aurelia-router"], function (require, exports, aur) {
     var App = (function () {
         function App(router) {
             this.router = router;

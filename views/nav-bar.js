@@ -1,4 +1,4 @@
-define(["require", "exports", "aurelia-framework"], function(require, exports, auf) {
+define(["require", "exports", "aurelia-framework"], function (require, exports, auf) {
     var NavBar = (function () {
         function NavBar() {
         }
