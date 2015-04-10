@@ -28,9 +28,9 @@ here are the instructions to run it...
 
 ## Cycle Found
 
-* templating/custom-element.ts 
-* templating/view-engine.ts 
-* templating/module-analyzer.
+templating/module-analyzer.ts 
+templating/html-behavior.ts 
+templating/view-engine.ts
 
 ## Contributing
 
