@@ -7,6 +7,8 @@ declare module "aurelia-logging-console" {
 }
 
 declare module "aurelia-dependency-injection" {
+    function inject(...rest:Array<any>);
+
     interface HandlerCallback {
         (container: Container): void;
     }
