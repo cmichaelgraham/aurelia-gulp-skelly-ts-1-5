@@ -6,21 +6,24 @@ var __decorate = this.__decorate || (typeof Reflect === "object" && Reflect.deco
     }
 };
 var __metadata = this.__metadata || (typeof Reflect === "object" && Reflect.metadata) || function () { };
-define(["require", "exports", "aurelia-router"], function (require, exports, aur) {
-    var Welcome = (function () {
-        function Welcome(router) {
+define(["require", "exports", 'aurelia-framework', 'aurelia-router'], function (require, exports, aurelia_framework_1, aurelia_router_1) {
+    var ChildRouter = (function () {
+        function ChildRouter(router) {
+            this.heading = 'Child Router';
             this.router = router;
-            this.heading = "Child Router";
             router.configure(function (config) {
                 config.map([
-                    { route: ["", "welcome"], moduleId: "views/welcome", nav: true, title: "Welcome" },
-                    { route: "flickr", moduleId: "views/flickr", nav: true },
-                    { route: "child-router", moduleId: "views/child-router", nav: true, title: "Child Router" }
+                    { route: ['', 'welcome'], moduleId: './welcome', nav: true, title: 'Welcome' },
+                    { route: 'flickr', moduleId: './flickr', nav: true },
+                    { route: 'child-router', moduleId: './child-router', nav: true, title: 'Child Router' }
                 ]);
             });
         }
-        Welcome.inject = [aur.Router];
-        return Welcome;
+        ChildRouter = __decorate([
+            aurelia_framework_1.inject(aurelia_router_1.Router), 
+            __metadata('design:paramtypes', [Object])
+        ], ChildRouter);
+        return ChildRouter;
     })();
-    exports.Welcome = Welcome;
+    exports.ChildRouter = ChildRouter;
 });

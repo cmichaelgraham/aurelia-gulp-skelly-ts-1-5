@@ -1,12 +1,3 @@
-//$(document).ready(() =>
-//{
-//    require(["esri/map", "dojo/domReady!"], function (Map) {
-//    var map = new Map("map", {
-//        center: [-118, 34.5],
-//        zoom: 8,
-//        basemap: "topo"
-//    });
-//})});
 var __decorate = this.__decorate || (typeof Reflect === "object" && Reflect.decorate) || function (decorators, target, key, desc) {
     switch (arguments.length) {
         case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);

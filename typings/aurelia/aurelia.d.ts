@@ -54,6 +54,8 @@ declare module "aurelia-dependency-injection" {
 }
 
 declare module "aurelia-templating" {
+    function bindable();
+
     class ResourcePool { }
     class ViewCompiler {
         compile(templateOrFragment: HTMLElement | DocumentFragment, viewResources: ViewResources, options?: Object): ViewFactory;
@@ -309,7 +311,9 @@ interface AuAppender { }
 
 declare module "aurelia-framework" {
 
-    function inject(...rest:Array<any>);
+    function inject(...rest:Array<any>); // from aurelia-dependency-injection
+    function bindable(); // from aurelia-templating
+    function computedFrom(...rest:Array<string>); // from aurelia-binding
 
     import Logging = require('aurelia-logging');
     type Logger = Logging.Logger;

@@ -2,14 +2,7 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var ts = require('gulp-typescript');
-var merge = require('merge2');
-var path = {
-  sourceTS: "./**/*.ts",
-  html: "./**/*.html",
-  style: "./**/*.css"
-}
-
-gulp.task('build-ts', function () {
+var merge = require('merge2');gulp.task('build-ts', function () {
     var tsResult = gulp.src([
         './views/*.ts',
         './typings/**/*.d.ts',
@@ -30,6 +23,13 @@ gulp.task('build-ts', function () {
         tsResult.js.pipe(gulp.dest('.'))
     ]);
 });
+
+var path = {
+  sourceTS: "./**/*.ts",
+  html: "./**/*.html",
+  style: "./**/*.css"
+}
+
 
 gulp.task('build', function(callback) {
   return runSequence(

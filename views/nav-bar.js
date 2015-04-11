@@ -6,11 +6,15 @@ var __decorate = this.__decorate || (typeof Reflect === "object" && Reflect.deco
     }
 };
 var __metadata = this.__metadata || (typeof Reflect === "object" && Reflect.metadata) || function () { };
-define(["require", "exports", "aurelia-framework"], function (require, exports, auf) {
+define(["require", "exports", 'aurelia-framework'], function (require, exports, aurelia_framework_1) {
     var NavBar = (function () {
         function NavBar() {
+            this.router = null;
         }
-        NavBar.metadata = auf.Behavior.withProperty("router");
+        __decorate([
+            aurelia_framework_1.bindable, 
+            __metadata('design:type', Object)
+        ], NavBar.prototype, "router");
         return NavBar;
     })();
     exports.NavBar = NavBar;
