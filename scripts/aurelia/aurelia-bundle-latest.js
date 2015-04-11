@@ -17815,7 +17815,7 @@ define('aurelia-bootstrapper',['exports', 'core-js', 'aurelia-framework', 'aurel
 
 define("aurelia-html-template-element", function(){});
 
-require([
+define("aurelia-bundle-manifest", [
   'aurelia-path',
   'aurelia-loader',
   'aurelia-loader-default',
@@ -17839,7 +17839,30 @@ require([
   'aurelia-bootstrapper',
   'aurelia-html-template-element',
   'core-js'
-  ]);
-
-define("aurelia-bundle-manifest", function(){});
+  ], function(_path,
+  _loader,
+  _loader_default,
+  _task_queue,
+  _logging,
+  _logging_console,
+  _history,
+  _history_browser,
+  _event_aggregator,
+  _framework,
+  _metadata,
+  _binding,
+  _templating,
+  _dependency_injection,
+  _router,
+  _templating_binding,
+  _templating_resources,
+  _templating_router,
+  _route_recognizer,
+  _http_client,
+  _bootstrapper,
+  _html_template_element,
+  _core_js
+){
+    alert(_dependency_injection.inject)
+  });
 

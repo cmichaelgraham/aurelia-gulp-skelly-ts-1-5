@@ -1,17 +1,20 @@
-import aur = require("aurelia-router");
+import {inject} from 'aurelia-dependency-injection';
+import {Router} from 'aurelia-router';
+import 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
 
+@inject(Router) 
 export class App {
-    static inject = [aur.Router];
-
-    constructor(private router: aur.Router) {
-        this.router.configure((config) => {
-            config.title = "Aurelia VS/TS";
-            config.map([
-                { route: ["", "welcome"], moduleId: "views/welcome", nav: true, title: "Welcome to VS/TS" },
-                { route: "flickr", moduleId: "views/flickr", nav: true },
-                { route: "esri-map", moduleId: "views/esri-map", nav: true, title:"ESRI Map V1" },
-                { route: "child-router", moduleId: "views/child-router", nav: true, title: "Child Router" }
-            ]);
-        });
-    }
+  public router;
+  constructor(router) {
+    this.router = router;
+    this.router.configure(config => {
+      config.title = 'Aurelia';
+      config.map([
+        { route: ['','welcome'],  moduleId: './welcome',      nav: true, title:'Welcome' },
+        { route: 'flickr',        moduleId: './flickr',       nav: true },
+        { route: 'child-router',  moduleId: './child-router', nav: true, title:'Child Router' }
+      ]);
+    });
+  }
 }

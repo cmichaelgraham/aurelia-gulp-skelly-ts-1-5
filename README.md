@@ -26,7 +26,11 @@ here are the instructions to run it...
 
 ![new aurelia bug](https://cloud.githubusercontent.com/assets/10272832/6877029/cc985106-d492-11e4-8293-37856deeb58b.jpg)
 
+## Cycle Found
 
+* templating/module-analyzer.ts 
+* templating/html-behavior.ts 
+* templating/view-engine.ts
 
 ## Contributing
 

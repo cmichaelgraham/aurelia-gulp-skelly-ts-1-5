@@ -7,7 +7,7 @@
 //        basemap: "topo"
 //    });
 //})});
-define(["require", "exports", "esri/map"], function(require, exports, Map) {
+define(["require", "exports", "esri/map"], function (require, exports, Map) {
     var EsriMap = (function () {
         function EsriMap() {
         }
