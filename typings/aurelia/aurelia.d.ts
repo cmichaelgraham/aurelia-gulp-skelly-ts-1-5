@@ -309,6 +309,8 @@ interface AuAppender { }
 
 declare module "aurelia-framework" {
 
+    function inject(...rest:Array<any>);
+
     import Logging = require('aurelia-logging');
     type Logger = Logging.Logger;
 

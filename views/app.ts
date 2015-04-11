@@ -5,6 +5,7 @@ import 'bootstrap/css/bootstrap.css!';
 
 @inject(Router)
 export class App {
+  public router;
   constructor(router) {
     this.router = router;
     this.router.configure(config => {
