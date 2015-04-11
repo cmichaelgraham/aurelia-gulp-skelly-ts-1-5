@@ -21,7 +21,8 @@ gulp.task('build-ts', function () {
          declarationFiles: false,
          noExternalResolve: true,
          target: "es5",
-         module: "amd"
+         module: "amd",
+         emitDecoratorMetadata: true
     }));
 
     return merge([

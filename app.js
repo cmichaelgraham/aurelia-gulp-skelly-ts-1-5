@@ -5,6 +5,7 @@ var __decorate = this.__decorate || (typeof Reflect === "object" && Reflect.deco
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
+var __metadata = this.__metadata || (typeof Reflect === "object" && Reflect.metadata) || function () { };
 define(["require", "exports", 'aurelia-dependency-injection', 'aurelia-router', 'bootstrap', 'bootstrap/css/bootstrap.css!'], function (require, exports, aurelia_dependency_injection_1, aurelia_router_1, , ) {
     var App = (function () {
         function App(router) {
@@ -19,7 +20,8 @@ define(["require", "exports", 'aurelia-dependency-injection', 'aurelia-router', 
             });
         }
         App = __decorate([
-            aurelia_dependency_injection_1.inject(aurelia_router_1.Router)
+            aurelia_dependency_injection_1.inject(aurelia_router_1.Router), 
+            __metadata('design:paramtypes', [Object])
         ], App);
         return App;
     })();
