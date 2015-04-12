@@ -2,7 +2,9 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
 var ts = require('gulp-typescript');
-var merge = require('merge2');gulp.task('build-ts', function () {
+var merge = require('merge2');
+
+gulp.task('build-ts', function () {
     var tsResult = gulp.src([
         './views/*.ts',
         './typings/**/*.d.ts',
@@ -25,20 +27,12 @@ var merge = require('merge2');gulp.task('build-ts', function () {
 });
 
 var path = {
-  sourceTS: "./**/*.ts",
-  html: "./**/*.html",
-  style: "./**/*.css"
+  sourceTS: "views/**/*.ts",
+  html: "views/**/*.html",
+  style: "styles/**/*.css"
 }
 
-
-gulp.task('build', function(callback) {
-  return runSequence(
-    'build-ts',
-    callback
-  );
-});
-
-gulp.task('serve', ['build'], function(done) {
+gulp.task('serve', ['build-ts'], function(done) {
   browserSync({
     open: false,
     port: 9000,
