@@ -11,9 +11,6 @@
 
     <link rel="stylesheet" href="http://js.arcgis.com/3.12/esri/css/esri.css" />
 
-    <script src="scripts/webcomponentsjs/webcomponents.js"></script>
-    <script src="scripts/core-js/client/core.js"></script>
-
     <script type="text/javascript">
         var origin = window.location.origin;
         var pathname = window.location.pathname;
@@ -46,7 +43,11 @@
     </div>
 
     <script>
-        require(["aurelia/aurelia-bundle-latest"], function(au) {});
+        require(["aurelia/aurelia-bundle-latest"], function(au) {
+            require(["aurelia-bundle-manifest"], function (abm) {
+                alert("loaded");
+            })
+        });
     </script>
 </body>
 </html>

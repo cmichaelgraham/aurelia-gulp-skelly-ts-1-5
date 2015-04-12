@@ -10983,6 +10983,7 @@ define('aurelia-templating/bindable-property',['exports', 'core-js', './util', '
 
       this.attribute = this.attribute || _util.hyphenate(this.name);
       this.defaultBindingMode = this.defaultBindingMode || _aureliaBinding.ONE_WAY;
+      this.changeHandler = this.changeHandler || null;
       this.owner = null;
     }
 
@@ -10999,7 +11000,7 @@ define('aurelia-templating/bindable-property',['exports', 'core-js', './util', '
         var name = this.name,
             handlerName;
 
-        if (this.changeHandler === undefined) {
+        if (this.changeHandler === null) {
           handlerName = name + 'Changed';
           if (handlerName in target.prototype) {
             this.changeHandler = handlerName;
@@ -11028,7 +11029,7 @@ define('aurelia-templating/bindable-property',['exports', 'core-js', './util', '
           return;
         }
 
-        if (this.changeHandler !== undefined) {
+        if (this.changeHandler !== null) {
           selfSubscriber = function (newValue, oldValue) {
             return executionContext[_this.changeHandler](newValue, oldValue);
           };
@@ -11061,7 +11062,7 @@ define('aurelia-templating/bindable-property',['exports', 'core-js', './util', '
               observer.call();
             } else if (attribute) {
               boundProperties.push({ observer: observer, binding: attribute.createBinding(executionContext) });
-            } else if (this.defaultValue) {
+            } else if (this.defaultValue !== undefined) {
               executionContext[this.name] = this.defaultValue;
               observer.call();
             }
@@ -11396,8 +11397,9 @@ define('aurelia-templating/html-behavior',['exports', 'aurelia-metadata', 'aurel
             }).registerWith(target, this);
           }
 
-          if (properties.length === 1) {
-            current = properties[0];
+          current = properties[0];
+
+          if (properties.length === 1 && current.name === 'value') {
             current.isDynamic = current.hasOptions = this.hasDynamicOptions;
             current.defineOn(target, this);
           } else {
@@ -14306,10 +14308,10 @@ define('aurelia-router/router',['exports', 'core-js', 'aurelia-route-recognizer'
   exports.Router = Router;
 
   function validateRouteConfig(config) {
-    var isValid = typeof config === 'object' && config.moduleId && config.route !== null && config.route !== undefined;
+    var isValid = typeof config === 'object' && (config.moduleId || config.redirect) && config.route !== null && config.route !== undefined;
 
     if (!isValid) {
-      throw new Error('Invalid route config.');
+      throw new Error('Invalid Route Config: You must have at least a route and a moduleId or redirect.');
     }
   }
 });
@@ -17815,7 +17817,7 @@ define('aurelia-bootstrapper',['exports', 'core-js', 'aurelia-framework', 'aurel
 
 define("aurelia-html-template-element", function(){});
 
-require([
+define("aurelia-bundle-manifest", [
   'aurelia-path',
   'aurelia-loader',
   'aurelia-loader-default',
@@ -17839,7 +17841,30 @@ require([
   'aurelia-bootstrapper',
   'aurelia-html-template-element',
   'core-js'
-  ]);
-
-define("aurelia-bundle-manifest", function(){});
+  ], function(_path,
+  _loader,
+  _loader_default,
+  _task_queue,
+  _logging,
+  _logging_console,
+  _history,
+  _history_browser,
+  _event_aggregator,
+  _framework,
+  _metadata,
+  _binding,
+  _templating,
+  _dependency_injection,
+  _router,
+  _templating_binding,
+  _templating_resources,
+  _templating_router,
+  _route_recognizer,
+  _http_client,
+  _bootstrapper,
+  _html_template_element,
+  _core_js
+){
+    alert(_dependency_injection.inject)
+  });
 
