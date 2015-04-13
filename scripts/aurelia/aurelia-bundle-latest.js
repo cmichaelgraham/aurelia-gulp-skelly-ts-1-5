@@ -6067,11 +6067,11 @@ define('aurelia-binding/observer-locator',['exports', 'aurelia-task-queue', './a
           return _getArrayObserver.apply(this, arguments);
         }
 
-        _arrayObservation.getArrayObserver.toString = function () {
+        getArrayObserver.toString = function () {
           return _getArrayObserver.toString();
         };
 
-        return _arrayObservation.getArrayObserver;
+        return getArrayObserver;
       })(function (array) {
         if ('__array_observer__' in array) {
           return array.__array_observer__;
@@ -6086,11 +6086,11 @@ define('aurelia-binding/observer-locator',['exports', 'aurelia-task-queue', './a
           return _getMapObserver.apply(this, arguments);
         }
 
-        _mapObservation.getMapObserver.toString = function () {
+        getMapObserver.toString = function () {
           return _getMapObserver.toString();
         };
 
-        return _mapObservation.getMapObserver;
+        return getMapObserver;
       })(function (map) {
         if ('__map_observer__' in map) {
           return map.__map_observer__;
@@ -8970,7 +8970,7 @@ define('aurelia-templating/view-strategy',['exports', 'aurelia-metadata', 'aurel
       key: 'normalize',
       value: function normalize(value) {
         if (typeof value === 'string') {
-          value = new UseView(value);
+          value = new UseViewStrategy(value);
         }
 
         if (value && !(value instanceof ViewStrategy)) {
@@ -15690,7 +15690,7 @@ define('aurelia-templating-resources/compose',['exports', 'aurelia-dependency-in
 
   var Compose = (function () {
     function Compose(container, compositionEngine, viewSlot, viewResources) {
-      _classCallCheck(this, Compose);
+      _classCallCheck(this, _Compose);
 
       this.container = container;
       this.compositionEngine = compositionEngine;
@@ -15698,7 +15698,9 @@ define('aurelia-templating-resources/compose',['exports', 'aurelia-dependency-in
       this.viewResources = viewResources;
     }
 
-    _createClass(Compose, [{
+    var _Compose = Compose;
+
+    _createClass(_Compose, [{
       key: 'bind',
       value: function bind(executionContext) {
         this.executionContext = executionContext;
@@ -15725,12 +15727,12 @@ define('aurelia-templating-resources/compose',['exports', 'aurelia-dependency-in
       }
     }]);
 
-    exports.Compose = Compose = customElement('compose')(Compose) || Compose;
-    exports.Compose = Compose = bindable('model')(Compose) || Compose;
-    exports.Compose = Compose = bindable('view')(Compose) || Compose;
-    exports.Compose = Compose = bindable('viewModel')(Compose) || Compose;
-    exports.Compose = Compose = noView(Compose) || Compose;
-    exports.Compose = Compose = inject(Container, CompositionEngine, ViewSlot, ViewResources)(Compose) || Compose;
+    Compose = _aureliaDependencyInjection.inject(_aureliaDependencyInjection.Container, _aureliaTemplating.CompositionEngine, _aureliaTemplating.ViewSlot, _aureliaTemplating.ViewResources)(Compose) || Compose;
+    Compose = _aureliaTemplating.noView(Compose) || Compose;
+    Compose = _aureliaTemplating.bindable('viewModel')(Compose) || Compose;
+    Compose = _aureliaTemplating.bindable('view')(Compose) || Compose;
+    Compose = _aureliaTemplating.bindable('model')(Compose) || Compose;
+    Compose = _aureliaTemplating.customElement('compose')(Compose) || Compose;
     return Compose;
   })();
 
@@ -15762,14 +15764,16 @@ define('aurelia-templating-resources/if',['exports', 'aurelia-templating', 'aure
 
   var If = (function () {
     function If(viewFactory, viewSlot) {
-      _classCallCheck(this, If);
+      _classCallCheck(this, _If);
 
       this.viewFactory = viewFactory;
       this.viewSlot = viewSlot;
       this.showing = false;
     }
 
-    _createClass(If, [{
+    var _If = If;
+
+    _createClass(_If, [{
       key: 'valueChanged',
       value: function valueChanged(newValue) {
         if (!newValue) {
@@ -15798,9 +15802,9 @@ define('aurelia-templating-resources/if',['exports', 'aurelia-templating', 'aure
       }
     }]);
 
-    exports.If = If = customAttribute('if')(If) || If;
-    exports.If = If = templateController(If) || If;
-    exports.If = If = inject(BoundViewFactory, ViewSlot)(If) || If;
+    If = _aureliaDependencyInjection.inject(_aureliaTemplating.BoundViewFactory, _aureliaTemplating.ViewSlot)(If) || If;
+    If = _aureliaTemplating.templateController(If) || If;
+    If = _aureliaTemplating.customAttribute('if')(If) || If;
     return If;
   })();
 
@@ -15819,13 +15823,15 @@ define('aurelia-templating-resources/with',['exports', 'aurelia-dependency-injec
 
   var With = (function () {
     function With(viewFactory, viewSlot) {
-      _classCallCheck(this, With);
+      _classCallCheck(this, _With);
 
       this.viewFactory = viewFactory;
       this.viewSlot = viewSlot;
     }
 
-    _createClass(With, [{
+    var _With = With;
+
+    _createClass(_With, [{
       key: 'valueChanged',
       value: function valueChanged(newValue) {
         if (!this.view) {
@@ -15837,9 +15843,9 @@ define('aurelia-templating-resources/with',['exports', 'aurelia-dependency-injec
       }
     }]);
 
-    exports.With = With = customAttribute('with')(With) || With;
-    exports.With = With = templateController(With) || With;
-    exports.With = With = inject(BoundViewFactory, ViewSlot)(With) || With;
+    With = _aureliaDependencyInjection.inject(_aureliaTemplating.BoundViewFactory, _aureliaTemplating.ViewSlot)(With) || With;
+    With = _aureliaTemplating.templateController(With) || With;
+    With = _aureliaTemplating.customAttribute('with')(With) || With;
     return With;
   })();
 
@@ -15858,7 +15864,7 @@ define('aurelia-templating-resources/repeat',['exports', 'aurelia-dependency-inj
 
   var Repeat = (function () {
     function Repeat(viewFactory, viewSlot, observerLocator) {
-      _classCallCheck(this, Repeat);
+      _classCallCheck(this, _Repeat);
 
       this.viewFactory = viewFactory;
       this.viewSlot = viewSlot;
@@ -15868,7 +15874,9 @@ define('aurelia-templating-resources/repeat',['exports', 'aurelia-dependency-inj
       this.value = 'value';
     }
 
-    _createClass(Repeat, [{
+    var _Repeat = Repeat;
+
+    _createClass(_Repeat, [{
       key: 'bind',
       value: function bind(executionContext) {
         var _this = this;
@@ -16174,12 +16182,12 @@ define('aurelia-templating-resources/repeat',['exports', 'aurelia-dependency-inj
       }
     }]);
 
-    exports.Repeat = Repeat = customAttribute('repeat')(Repeat) || Repeat;
-    exports.Repeat = Repeat = bindable('items')(Repeat) || Repeat;
-    exports.Repeat = Repeat = bindable('local')(Repeat) || Repeat;
-    exports.Repeat = Repeat = bindable('key')(Repeat) || Repeat;
-    exports.Repeat = Repeat = templateController(Repeat) || Repeat;
-    exports.Repeat = Repeat = inject(BoundViewFactory, ViewSlot, ObserverLocator)(Repeat) || Repeat;
+    Repeat = _aureliaDependencyInjection.inject(_aureliaTemplating.BoundViewFactory, _aureliaTemplating.ViewSlot, _aureliaBinding.ObserverLocator)(Repeat) || Repeat;
+    Repeat = _aureliaTemplating.templateController(Repeat) || Repeat;
+    Repeat = _aureliaTemplating.bindable('key')(Repeat) || Repeat;
+    Repeat = _aureliaTemplating.bindable('local')(Repeat) || Repeat;
+    Repeat = _aureliaTemplating.bindable('items')(Repeat) || Repeat;
+    Repeat = _aureliaTemplating.customAttribute('repeat')(Repeat) || Repeat;
     return Repeat;
   })();
 
@@ -16207,12 +16215,14 @@ define('aurelia-templating-resources/show',['exports', 'aurelia-dependency-injec
 
   var Show = (function () {
     function Show(element) {
-      _classCallCheck(this, Show);
+      _classCallCheck(this, _Show);
 
       this.element = element;
     }
 
-    _createClass(Show, [{
+    var _Show = Show;
+
+    _createClass(_Show, [{
       key: 'valueChanged',
       value: function valueChanged(newValue) {
         if (newValue) {
@@ -16223,8 +16233,8 @@ define('aurelia-templating-resources/show',['exports', 'aurelia-dependency-injec
       }
     }]);
 
-    exports.Show = Show = customAttribute('show')(Show) || Show;
-    exports.Show = Show = inject(Element)(Show) || Show;
+    Show = _aureliaDependencyInjection.inject(Element)(Show) || Show;
+    Show = _aureliaTemplating.customAttribute('show')(Show) || Show;
     return Show;
   })();
 
@@ -16243,12 +16253,14 @@ define('aurelia-templating-resources/global-behavior',['exports', 'aurelia-depen
 
   var GlobalBehavior = (function () {
     function GlobalBehavior(element) {
-      _classCallCheck(this, GlobalBehavior);
+      _classCallCheck(this, _GlobalBehavior);
 
       this.element = element;
     }
 
-    _createClass(GlobalBehavior, [{
+    var _GlobalBehavior = GlobalBehavior;
+
+    _createClass(_GlobalBehavior, [{
       key: 'bind',
       value: function bind() {
         var handler = GlobalBehavior.handlers[this.aureliaAttrName];
@@ -16288,9 +16300,9 @@ define('aurelia-templating-resources/global-behavior',['exports', 'aurelia-depen
       }
     }]);
 
-    exports.GlobalBehavior = GlobalBehavior = customAttribute('global-behavior')(GlobalBehavior) || GlobalBehavior;
-    exports.GlobalBehavior = GlobalBehavior = dynamicOptions(GlobalBehavior) || GlobalBehavior;
-    exports.GlobalBehavior = GlobalBehavior = inject(Element)(GlobalBehavior) || GlobalBehavior;
+    GlobalBehavior = _aureliaDependencyInjection.inject(Element)(GlobalBehavior) || GlobalBehavior;
+    GlobalBehavior = _aureliaTemplating.dynamicOptions(GlobalBehavior) || GlobalBehavior;
+    GlobalBehavior = _aureliaTemplating.customAttribute('global-behavior')(GlobalBehavior) || GlobalBehavior;
     return GlobalBehavior;
   })();
 
@@ -16355,12 +16367,14 @@ define('aurelia-templating-resources/sanitize-html',['exports', 'aurelia-binding
 
   var SanitizeHtmlValueConverter = (function () {
     function SanitizeHtmlValueConverter() {
-      _classCallCheck(this, SanitizeHtmlValueConverter);
+      _classCallCheck(this, _SanitizeHtmlValueConverter);
 
       this.sanitizer = SanitizeHtmlValueConverter.defaultSanitizer;
     }
 
-    _createClass(SanitizeHtmlValueConverter, [{
+    var _SanitizeHtmlValueConverter = SanitizeHtmlValueConverter;
+
+    _createClass(_SanitizeHtmlValueConverter, [{
       key: 'toView',
       value: function toView(untrustedMarkup) {
         if (untrustedMarkup === null) {
@@ -16376,7 +16390,7 @@ define('aurelia-templating-resources/sanitize-html',['exports', 'aurelia-binding
       }
     }]);
 
-    exports.SanitizeHtmlValueConverter = SanitizeHtmlValueConverter = valueConverter('sanitizeHtml')(SanitizeHtmlValueConverter) || SanitizeHtmlValueConverter;
+    SanitizeHtmlValueConverter = _aureliaBinding.valueConverter('sanitizeHtml')(SanitizeHtmlValueConverter) || SanitizeHtmlValueConverter;
     return SanitizeHtmlValueConverter;
   })();
 
@@ -16421,15 +16435,17 @@ define('aurelia-templating-router/route-loader',['exports', 'aurelia-dependency-
 
   var TemplatingRouteLoader = (function (_RouteLoader) {
     function TemplatingRouteLoader(compositionEngine) {
-      _classCallCheck(this, TemplatingRouteLoader);
+      _classCallCheck(this, _TemplatingRouteLoader);
 
-      _get(Object.getPrototypeOf(TemplatingRouteLoader.prototype), 'constructor', this).call(this);
+      _get(Object.getPrototypeOf(_TemplatingRouteLoader.prototype), 'constructor', this).call(this);
       this.compositionEngine = compositionEngine;
     }
 
     _inherits(TemplatingRouteLoader, _RouteLoader);
 
-    _createClass(TemplatingRouteLoader, [{
+    var _TemplatingRouteLoader = TemplatingRouteLoader;
+
+    _createClass(_TemplatingRouteLoader, [{
       key: 'loadRoute',
       value: function loadRoute(router, config) {
         var childContainer = router.container.createChild(),
@@ -16452,7 +16468,7 @@ define('aurelia-templating-router/route-loader',['exports', 'aurelia-dependency-
       }
     }]);
 
-    exports.TemplatingRouteLoader = TemplatingRouteLoader = inject(CompositionEngine)(TemplatingRouteLoader) || TemplatingRouteLoader;
+    TemplatingRouteLoader = _aureliaDependencyInjection.inject(_aureliaTemplating.CompositionEngine)(TemplatingRouteLoader) || TemplatingRouteLoader;
     return TemplatingRouteLoader;
   })(_aureliaRouter.RouteLoader);
 
@@ -16471,7 +16487,7 @@ define('aurelia-templating-router/router-view',['exports', 'aurelia-dependency-i
 
   var RouterView = (function () {
     function RouterView(element, container, viewSlot, router) {
-      _classCallCheck(this, RouterView);
+      _classCallCheck(this, _RouterView);
 
       this.element = element;
       this.container = container;
@@ -16480,7 +16496,9 @@ define('aurelia-templating-router/router-view',['exports', 'aurelia-dependency-i
       router.registerViewPort(this, element.getAttribute('name'));
     }
 
-    _createClass(RouterView, [{
+    var _RouterView = RouterView;
+
+    _createClass(_RouterView, [{
       key: 'process',
       value: function process(viewPortInstruction, waitToSwap) {
         var _this = this;
@@ -16529,9 +16547,9 @@ define('aurelia-templating-router/router-view',['exports', 'aurelia-dependency-i
       }
     }]);
 
-    exports.RouterView = RouterView = customElement('router-view')(RouterView) || RouterView;
-    exports.RouterView = RouterView = noView(RouterView) || RouterView;
-    exports.RouterView = RouterView = inject(Element, Container, ViewSlot, Router)(RouterView) || RouterView;
+    RouterView = _aureliaDependencyInjection.inject(Element, _aureliaDependencyInjection.Container, _aureliaTemplating.ViewSlot, _aureliaRouter.Router)(RouterView) || RouterView;
+    RouterView = _aureliaTemplating.noView(RouterView) || RouterView;
+    RouterView = _aureliaTemplating.customElement('router-view')(RouterView) || RouterView;
     return RouterView;
   })();
 

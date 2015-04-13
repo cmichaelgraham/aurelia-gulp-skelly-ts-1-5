@@ -6,7 +6,9 @@ var __decorate = this.__decorate || (typeof Reflect === "object" && Reflect.deco
     }
 };
 var __metadata = this.__metadata || (typeof Reflect === "object" && Reflect.metadata) || function () { };
-define(["require", "exports", 'aurelia-framework', 'aurelia-router', 'bootstrap', 'bootstrap/css/bootstrap.css!'], function (require, exports, aurelia_framework_1, aurelia_router_1, , ) {
+define(["require", "exports", 'aurelia-framework', 'aurelia-router'], function (require, exports, aurelia_framework_1, aurelia_router_1) {
+    //import 'bootstrap';
+    //import 'bootstrap/css/bootstrap.css!';
     var App = (function () {
         function App(router) {
             this.router = router;

@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
-import 'bootstrap';
-import 'bootstrap/css/bootstrap.css!';
+//import 'bootstrap';
+//import 'bootstrap/css/bootstrap.css!';
 
 @inject(Router)
 export class App {
