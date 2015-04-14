@@ -21,7 +21,7 @@ define(["require", "exports", 'aurelia-framework', 'aurelia-router'], function (
         }
         ChildRouter = __decorate([
             aurelia_framework_1.inject(aurelia_router_1.Router), 
-            __metadata('design:paramtypes', [Object])
+            __metadata('design:paramtypes', [aurelia_router_1.Router])
         ], ChildRouter);
         return ChildRouter;
     })();
