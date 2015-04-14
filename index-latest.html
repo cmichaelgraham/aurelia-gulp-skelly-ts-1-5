@@ -21,6 +21,7 @@
             parseOnLoad: true,
             paths: {
                 aurelia: baseUrl + "/scripts/aurelia",
+                babel: baseUrl + "/scripts/babel",
                 webcomponentsjs: baseUrl + "/scripts/webcomponentsjs",
                 views: baseUrl + "/views",
                 underscore: baseUrl + "/scripts/underscore/underscore.min"
@@ -36,18 +37,23 @@
     <script src="http://js.arcgis.com/3.12/"></script>
 </head>
 
-<body aurelia-app="views/app">
+<body aurelia-app>
     <div class="splash">
         <div class="message">Aurelia Navigation Skeleton</div>
         <i class="fa fa-spinner fa-spin"></i>
     </div>
 
     <script>
-        require(["aurelia/aurelia-bundle-latest"], function(au) {
-            require(["aurelia-bundle-manifest"], function (abm) {
-                alert("loaded");
-            })
-        });
+        global = window;
+ //       require(["babel/polyfill"], function(bab) {
+            require(["aurelia/aurelia-bundle-latest"], function(au) {
+                require(["aurelia-bundle-manifest"], function (abm) {
+                    require(["aurelia-bootstrapper"], function (b) {
+                        alert("loaded");
+                    });
+                })
+            });
+ //       });
     </script>
 </body>
 </html>
