@@ -1,4 +1,4 @@
-# aurelia-sample-bug
+# aurelia-gulp-skelly-ts-1-5
 
 Working with new Aurelia bundle
 
